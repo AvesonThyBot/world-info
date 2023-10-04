@@ -7,9 +7,13 @@ body {
 	background-color: black;
 }
 
-svg {
+.map-container svg {
 	max-width: 100%;
 	padding-top: 60px;
+}
+
+.map-container svg path:hover {
+	fill: blue;
 }
 
 /* navbar */
