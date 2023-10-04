@@ -1,9 +1,12 @@
-import abstractApiKey from "./apikey.js";
-function httpGetAsync(abstractApiKey, callback) {
-	const xmlHttp = new XMLHttpRequest();
-	xmlHttp.onreadystatechange = function () {
-		if (xmlHttp.readyState === 4 && xmlHttp.status === 200) callback(xmlHttp.responseText);
-	};
-	xmlHttp.open("GET", url, true); // true for asynchronous
-	xmlHttp.send(null);
+import { url, options } from "./apikey.js";
+
+function displayMap() {
+	fetch(url, options)
+		.then((data) => data.json())
+		.then((data) => {
+			// check data
+			console.log(data);
+		});
 }
+
+displayMap();

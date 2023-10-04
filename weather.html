@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Linking css and details -->
+		<link rel="stylesheet" href="/styles/weather.css" />
+		<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+		<title>Map information</title>
+	</head>
+	<body class="bg-dark">
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><img src="/images/favicon.png" alt="logo for navbar" /></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-link" aria-current="page" href="/index.html">Home</a>
+						<a class="nav-link" href="/map.html">World Info</a>
+						<a class="nav-link active" href="/weather.html">Weather</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Weather container -->
+		<div class="container-lg container-fluid bg-white position-absolute top-50 start-50 translate-middle">
+			<div class="top-row">
+				<!-- Location at top -->
+				<div id="location"></div>
+				<div id="date"></div>
+				<div id="time"></div>
+				<!-- Search location at middle top -->
+				<div id="search">
+					<input type="text" name="search" id="search-bar" placeholder="Leicester" />
+				</div>
+			</div>
+			<div class="mid-row">
+				<!-- Days container in middle left -->
+				<div class="days">
+					<div id="today">Today</div>
+					<div id="tommorow">Tommorow</div>
+					<div id="overmorrow">Overmorrow</div>
+				</div>
+				<!-- Weather information at mid -->
+				<div id="weather-info">
+					<div class="hours">Hours</div>
+					<div class="main-details">
+						<span id="temperature">Temperature: 12C</span>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-row">
+				<!-- Extra details at bottom -->
+				<div class="extra-details">Wind: 100mph</div>
+			</div>
+		</div>
+
+		<!-- scripts -->
+		<script type="module" src="scripts/weather.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	</body>
+</html>

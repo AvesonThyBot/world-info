@@ -1,0 +1,11 @@
+/* navbar */
+.navbar-brand img {
+	max-width: 50px;
+}
+
+.navbar a {
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
