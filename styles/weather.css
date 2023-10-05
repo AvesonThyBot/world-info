@@ -9,3 +9,116 @@
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
+
+.container {
+	border-radius: 15px;
+	border: 3px solid cyan;
+	position: relative;
+	z-index: 1;
+}
+
+.rows {
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.top-row {
+	flex-direction: column;
+}
+
+.top-row div {
+	padding: 10px 10px 0 0;
+}
+
+#search {
+	margin: 10px 0;
+	position: absolute;
+	margin-left: 25%;
+	margin-right: auto;
+	border-radius: 10px;
+	padding: 0 2px;
+	display: flex;
+}
+
+#search-bar {
+	flex: 1;
+	padding: 3px;
+	border: 3px solid cyan;
+	border-radius: 6px;
+	outline: none;
+}
+
+#search-button {
+	padding: 3px;
+	border: 3px solid cyan;
+	border-radius: 6px;
+}
+
+.mid-row {
+	padding: 10px 10px;
+}
+
+.days div {
+	margin: 20px 0;
+	padding: 10px;
+	background-color: #004390;
+	border: 3px solid black;
+	border-radius: 10px;
+	width: 30%;
+	font-size: 18px;
+	text-align: center;
+}
+
+#today-high,
+#today-low,
+#tommorow-high,
+#tommorow-low,
+#overmorrow-high,
+#overmorrow-low {
+	margin: 0 10px;
+}
+
+.days {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	width: 80%;
+	height: auto;
+}
+
+/* Hours */
+
+.weather-info {
+	position: absolute;
+	border: 3px solid black;
+	border-radius: 6px;
+	padding: 10px;
+	margin-top: 15px;
+	margin-left: 28%;
+	margin-right: auto;
+	overflow: hidden;
+}
+
+.outer-container {
+	overflow: hidden;
+}
+
+.inner-container {
+	display: flex;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.hour-card {
+	flex: 0 0 auto;
+	color: white;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	max-width: 110px;
+	height: 110px;
+	background: #b8f4ff;
+	margin-right: 10px;
+}

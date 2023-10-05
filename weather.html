@@ -28,8 +28,8 @@
 		</nav>
 
 		<!-- Weather container -->
-		<div class="container-lg container-fluid bg-white position-absolute top-50 start-50 translate-middle">
-			<div class="top-row">
+		<div class="container container-lg container-fluid bg-white position-absolute top-50 start-50 translate-middle">
+			<div class="top-row rows">
 				<!-- Location at top -->
 				<div id="location"></div>
 				<div id="date"></div>
@@ -37,26 +37,57 @@
 				<!-- Search location at middle top -->
 				<div id="search">
 					<input type="text" name="search" id="search-bar" placeholder="Leicester" />
+					<button type="button" id="search-button">Search</button>
 				</div>
 			</div>
-			<div class="mid-row">
+			<div class="mid-row rows">
 				<!-- Days container in middle left -->
 				<div class="days">
-					<div id="today">Today</div>
-					<div id="tommorow">Tommorow</div>
-					<div id="overmorrow">Overmorrow</div>
-				</div>
-				<!-- Weather information at mid -->
-				<div id="weather-info">
-					<div class="hours">Hours</div>
-					<div class="main-details">
-						<span id="temperature">Temperature: 12C</span>
+					<div id="today">
+						<span id="today-title"> Today </span>
+						<img id="today-icon" src="#" alt="weather icon" />
+						<span id="today-high"></span>
+						<span id="today-low"></span>
+					</div>
+					<div id="tommorow">
+						<span id="tommorow-title"> Tommorow </span>
+						<span id="tommorow-icon"></span>
+						<span id="tommorow-high"></span>
+						<span id="tommorow-low"></span>
+					</div>
+					<div id="overmorrow">
+						<span id="overmorrow-title"> Overmorrow </span>
+						<span id="overmorrow-icon"></span>
+						<span id="overmorrow-high"></span>
+						<span id="overmorrow-low"></span>
 					</div>
 				</div>
-			</div>
-			<div class="bottom-row">
+				<!-- Weather information at mid -->
+				<div class="weather-info">
+					<div class="outer-container">
+						<div class="inner-container">
+							<div class="hour-card">Card 1</div>
+							<div class="hour-card">Card 2</div>
+							<div class="hour-card">Card 3</div>
+							<div class="hour-card">Card 4</div>
+							<div class="hour-card">Card 5</div>
+							<!-- Add more cards as needed -->
+						</div>
+					</div>
+					<div class="main-details">
+						<span id="temperature">Temperature: 12C</span>
+						<span id="sunrise">Sunrise: </span>
+						<span id="sunset">Sunset: </span>
+						<span id="moonrise">Moonrise: </span>
+						<span id="moonset">Moonset: </span>
+						<span id="wind-speed">Wind: 100mph</span>
+					</div>
+				</div>
+			<div class="bottom-row rows">
 				<!-- Extra details at bottom -->
-				<div class="extra-details">Wind: 100mph</div>
+				<div class="extra-details">
+					<span id="last-updated">now</span>
+				</div>
 			</div>
 		</div>
 
