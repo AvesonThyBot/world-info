@@ -96,29 +96,27 @@
 	border-radius: 6px;
 	padding: 10px;
 	margin-top: 15px;
-	margin-left: 28%;
+	margin-left: 25%;
 	margin-right: auto;
 	overflow: hidden;
 }
 
-.outer-container {
-	overflow: hidden;
-}
-
-.inner-container {
+.scrolling-wrapper {
 	display: flex;
+	flex-wrap: wrap;
 	overflow-x: auto;
-	white-space: nowrap;
+	white-space: wrap;
 }
 
 .hour-card {
-	flex: 0 0 auto;
+	display: inline-block;
 	color: white;
 	text-align: center;
 	padding: 14px;
 	text-decoration: none;
-	max-width: 110px;
+	max-width: 200px;
+	width: 100px;
 	height: 110px;
 	background: #b8f4ff;
-	margin-right: 10px;
+	margin: 10px;
 }
