@@ -28,24 +28,30 @@ function weather() {
 			// Today container
 			today.innerHTML = `<p id="today-title">${covertTime(data.forecast.forecastday[0].date)}</p>
 			<span class="icon-container"><img id="today-icon" src="${data.forecast.forecastday[0].day.condition.icon}" alt="weather icon" /></span>
-			<span id="today-high">${data.forecast.forecastday[0].day.maxtemp_c}°C</span>
-			<span id="today-low">${data.forecast.forecastday[0].day.mintemp_c}°C</span>`;
+			<span id="today-high">High - ${data.forecast.forecastday[0].day.maxtemp_c}°C</span>
+			<span id="today-low">Low - ${data.forecast.forecastday[0].day.mintemp_c}°C</span>`;
 			// Tommorow container
 			tommorow.innerHTML = `<p id="tommorow-title">${covertTime(data.forecast.forecastday[1].date)}</p>
 			<span class="icon-container"><img id="tommorow-icon" src="${data.forecast.forecastday[1].day.condition.icon}" alt="weather icon" /></span>
-			<span id="tommorow-high">${data.forecast.forecastday[1].day.maxtemp_c}°C</span>
-			<span id="tommorow-low">${data.forecast.forecastday[1].day.mintemp_c}°C</span>`;
+			<span id="tommorow-high">High - ${data.forecast.forecastday[1].day.maxtemp_c}°C</span>
+			<span id="tommorow-low">Low - ${data.forecast.forecastday[1].day.mintemp_c}°C</span>`;
 			// Overmorrow container
 			overmorrow.innerHTML = `<p id="overmorrow-title">${covertTime(data.forecast.forecastday[2].date)}</p>
 			<span class="icon-container"><img id="overmorrow-icon" src="${data.forecast.forecastday[2].day.condition.icon}" alt="weather icon" /></span>
-			<span id="overmorrow-high">${data.forecast.forecastday[2].day.maxtemp_c}°C</span>
-			<span id="overmorrow-low">${data.forecast.forecastday[2].day.mintemp_c}°C</span>`;
+			<span id="overmorrow-high">High - ${data.forecast.forecastday[2].day.maxtemp_c}°C</span>
+			<span id="overmorrow-low">Low - ${data.forecast.forecastday[2].day.mintemp_c}°C</span>`;
 
-			// Assign temperature (closed until designed)
-			// const hoursBox = document.querySelector(".hour-box");
-			// for (let index = 0; index < 24; index++) {
-			// 	hoursBox.innerHTML += `<span class="hours">${data.forecast.forecastday[0].hour[index].cloud}</span>`;
-			// }
+			// Assign today's hours.
+			const hoursBox = document.querySelector(".hour-box");
+			hoursBox.innerHTML = "";
+			for (let hour = 0; hour < 24; hour++) {
+				hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+				<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
+				<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
+				<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
+				<span class="hour-humidity">${data.forecast.forecastday[0].hour[hour].humidity}q</span>
+			</div>`;
+			}
 
 			// Assign temperature
 			const temperature = document.querySelector("#temperature");
