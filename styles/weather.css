@@ -21,7 +21,8 @@
 	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .top-row {
@@ -56,67 +57,28 @@
 	border-radius: 6px;
 }
 
-.mid-row {
-	padding: 10px 10px;
-}
-
-.days div {
-	margin: 20px 0;
-	padding: 10px;
-	background-color: #004390;
-	border: 3px solid black;
-	border-radius: 10px;
-	width: 30%;
-	font-size: 18px;
-	text-align: center;
-}
-
-#today-high,
-#today-low,
-#tommorow-high,
-#tommorow-low,
-#overmorrow-high,
-#overmorrow-low {
-	margin: 0 10px;
-}
-
-.days {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	width: 80%;
-	height: auto;
-}
-
-/* Hours */
-
 .weather-info {
-	position: absolute;
-	border: 3px solid black;
-	border-radius: 6px;
-	padding: 10px;
-	margin-top: 15px;
-	margin-left: 25%;
-	margin-right: auto;
-	overflow: hidden;
+	flex: 1 1;
+	padding: 20px 30px;
+	display: flex;
+	flex-direction: column;
 }
 
 .scrolling-wrapper {
 	display: flex;
-	flex-wrap: wrap;
-	overflow-x: auto;
-	white-space: wrap;
+	overflow-x: scroll;
+
+	max-width: 50rem;
+	margin: 0 auto;
 }
 
-.hour-card {
-	display: inline-block;
+.scrolling-wrapper div {
+	font-family: sans-serif;
+
+	border-radius: 8px;
+	background: #ff6961;
 	color: white;
-	text-align: center;
-	padding: 14px;
-	text-decoration: none;
-	max-width: 200px;
-	width: 100px;
-	height: 110px;
-	background: #b8f4ff;
-	margin: 10px;
+
+	padding: 2rem 3rem;
+	margin: 2rem 1rem;
 }
