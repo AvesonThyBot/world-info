@@ -102,10 +102,19 @@
 /* weather info */
 .weather-info {
 	flex: 1 1;
-	padding: 20px 30px;
+	padding: 10px 30px;
+	position: relative;
+}
+
+.main-details span {
 	display: flex;
 	flex-direction: column;
-	position: relative;
+	background-color: aqua;
+	border: 1px solid black;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 5px;
+	max-width: 200px;
 }
 
 .main-details {
@@ -117,9 +126,11 @@
 	overflow-x: scroll;
 	position: relative;
 	scroll-behavior: smooth;
-	max-width: 990px;
-	bottom: 37px;
-	border: 1px solid black;
+	max-width: 820px;
+	bottom: 390px;
+	left: 226px;
+	border: 2px solid aqua;
+	border-radius: 20px;
 }
 
 .scrolling-wrapper::-webkit-scrollbar {
