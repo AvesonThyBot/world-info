@@ -73,15 +73,16 @@
 #tommorow-title {
 	margin-bottom: 0px;
 }
+
+.main-details {
+	bottom: 195px;
+}
 /* search */
 #search {
-	margin: 10px 0;
-	position: absolute;
-	margin-left: 25%;
-	margin-right: auto;
+	position: relative;
 	border-radius: 10px;
-	padding: 0 2px;
 	display: flex;
+	padding: 10px 0;
 }
 
 #search-bar {
@@ -117,7 +118,7 @@
 	position: relative;
 	scroll-behavior: smooth;
 	max-width: 990px;
-	bottom: 74px;
+	bottom: 37px;
 	border: 1px solid black;
 }
 

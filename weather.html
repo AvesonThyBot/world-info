@@ -23,6 +23,10 @@
 						<a class="nav-link" href="/map.html">World Info</a>
 						<a class="nav-link active" href="/weather.html">Weather</a>
 					</div>
+					<div id="search">
+						<input type="text" name="search" id="search-bar" placeholder="Leicester" />
+						<button type="button" id="search-button">Search</button>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -35,10 +39,6 @@
 				<div id="date"></div>
 				<div id="time"></div>
 				<!-- Search location at middle top -->
-				<div id="search">
-					<input type="text" name="search" id="search-bar" placeholder="Leicester" />
-					<button type="button" id="search-button">Search</button>
-				</div>
 			</div>
 			<div class="mid-row rows">
 				<!-- Days container in middle left -->
@@ -64,14 +64,6 @@
 				</div>
 				<!-- Weather information at mid -->
 				<div class="weather-info">
-					<div class="hour-box scrolling-wrapper">
-						<div class="hour-card">
-							<h5 class="hour-title"></h5>
-							<img class="hour-icon" src="" alt="" />
-							<span class="hour-temperature"></span>
-							<span class="hour-humidity"></span>
-						</div>
-					</div>
 					<div class="main-details">
 						<span id="temperature">Temperature: 12C</span>
 						<span id="sunrise">Sunrise: </span>
@@ -79,6 +71,9 @@
 						<span id="moonrise">Moonrise: </span>
 						<span id="moonset">Moonset: </span>
 						<span id="wind-speed">Wind: 100mph</span>
+					</div>
+					<div class="hour-box scrolling-wrapper">
+						</div>
 					</div>
 				</div>
 			</div>
