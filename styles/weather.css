@@ -1,9 +1,10 @@
+/* Reset default margin and padding for all elements */
 * {
 	margin: 0;
 	padding: 0;
 }
 
-/* navbar */
+/* Navbar styles */
 .navbar-brand img {
 	max-width: 50px;
 }
@@ -15,69 +16,7 @@
 	-webkit-user-select: none;
 }
 
-/* container */
-.container {
-	border-radius: 15px;
-	border: 3px solid cyan;
-	position: relative;
-	z-index: 1;
-}
-
-.rows {
-	padding: 10px;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.top-row {
-	flex-direction: column;
-}
-
-.top-row div {
-	padding: 10px 10px 0 0;
-}
-
-#location,
-#date,
-#time {
-	background-color: aqua;
-	border: 1px solid black;
-	max-width: 230px;
-	margin: 5px 0;
-	border-radius: 20px;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	padding: 5px;
-}
-
-.days div {
-	position: relative;
-	background-color: aqua;
-	border: 1px solid black;
-	padding: 10px;
-	margin: 10px 0;
-	border-radius: 6px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	user-select: none;
-}
-
-#today-title,
-#overmorrow-title,
-#tommorow-title {
-	margin-bottom: 0px;
-}
-
-.main-details {
-	bottom: 195px;
-}
-/* search */
+/* Search bar styles */
 #search {
 	position: relative;
 	border-radius: 10px;
@@ -99,28 +38,70 @@
 	border-radius: 6px;
 }
 
-/* weather info */
+/* Main container styles */
+.container {
+	border-radius: 15px;
+	border: 3px solid cyan;
+	position: relative;
+	z-index: 1;
+	max-height: 800px;
+}
+
+/* Left column styles */
+.left-col {
+	display: flex;
+	flex-direction: column;
+	max-width: 250px;
+	margin: 10px;
+}
+
+/* Day information styles */
+#time,
+#date,
+#location {
+	background-color: aqua;
+	border: 1px solid black;
+	border-radius: 20px;
+	margin-bottom: 5px;
+	padding: 5px;
+	max-width: 250px;
+}
+
+.days div {
+	position: relative;
+	background-color: aqua;
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	max-width: 250px;
+}
+
+#today-title,
+#overmorrow-title,
+#tommorow-title {
+	margin-bottom: 0px;
+}
+
+/* Main details and weather info styles */
+.main-details {
+	bottom: 195px;
+	position: relative;
+}
+
 .weather-info {
 	flex: 1 1;
 	padding: 10px 30px;
 	position: relative;
 }
 
-.main-details span {
-	display: flex;
-	flex-direction: column;
-	background-color: aqua;
-	border: 1px solid black;
-	border-radius: 20px;
-	margin: 10px;
-	padding: 5px;
-	max-width: 200px;
-}
-
-.main-details {
-	position: relative;
-}
-
+/* Scroll wheel for hours styles */
 .scrolling-wrapper {
 	display: flex;
 	overflow-x: scroll;
@@ -154,8 +135,7 @@
 	user-select: none;
 }
 
-/* displayed information */
-
+/* Displayed information styles */
 .display-details {
 	bottom: 383px;
 	position: relative;
