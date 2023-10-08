@@ -177,12 +177,16 @@
 /* -------------------- Middle div -------------------- */
 
 /* Displayed information styles */
-.display-info {
+.center-div {
+	position: relative;
 	bottom: 672px;
 	left: 280px;
+	max-width: 1000px;
+}
+
+.display-info {
 	position: relative;
 	border: 2px solid black;
-	max-width: 1000px;
 }
 
 /* -------------------- Bottom text -------------------- */
@@ -190,4 +194,8 @@
 	position: absolute;
 	bottom: 12px;
 	left: 20px;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
