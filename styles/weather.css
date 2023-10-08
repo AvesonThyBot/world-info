@@ -95,10 +95,24 @@
 	position: relative;
 }
 
+/* Weather Info */
 .weather-info {
 	flex: 1 1;
 	padding: 10px 30px;
 	position: relative;
+}
+
+/* Sun/Moon Phase */
+.main-details span {
+	display: flex;
+	flex-direction: column;
+	background-color: aqua;
+	border: 1px solid black;
+	border-radius: 20px;
+	margin: 10px;
+	padding: 5px;
+	max-width: 200px;
+	align-items: center;
 }
 
 /* Scroll wheel for hours styles */
