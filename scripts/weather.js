@@ -70,6 +70,10 @@ function weather() {
 			// // Assign wind speed
 			// const windSpeed = document.querySelector("#wind-speed");
 			// windSpeed.textContent = `Wind Speed: ${data.current.wind_kph} km/h`;
+
+			// Assign last updated
+			const lastUpdated = document.querySelector(".bottom-row");
+			lastUpdated.textContent = `Last updated: ${data.current.last_updated}`;
 		});
 }
 
