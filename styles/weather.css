@@ -4,6 +4,8 @@
 	padding: 0;
 }
 
+/* -------------------- Nav bar & search -------------------- */
+
 /* Navbar styles */
 .navbar-brand img {
 	max-width: 50px;
@@ -38,6 +40,8 @@
 	border-radius: 6px;
 }
 
+/* -------------------- Container -------------------- */
+
 /* Main container styles */
 .container {
 	border-radius: 15px;
@@ -47,7 +51,8 @@
 	max-height: 800px;
 }
 
-/* Left column styles */
+/* -------------------- Left Col -------------------- */
+
 .left-col {
 	display: flex;
 	flex-direction: column;
@@ -89,17 +94,38 @@
 	margin-bottom: 0px;
 }
 
-/* Main details and weather info styles */
-.main-details {
-	bottom: 195px;
+/* -------------------- Top row -------------------- */
+/* Top row */
+.top-row {
+	margin: 10px 0;
 	position: relative;
+	bottom: 662px;
+	left: 238px;
+}
+/* Weather Info */
+.weather-info {
+	flex: 1 1;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+}
+
+.weather-info .hour-box {
+	margin-left: 10px;
+}
+
+/* Main details */
+.main-details {
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Weather Info */
 .weather-info {
 	flex: 1 1;
-	padding: 10px 30px;
 	position: relative;
+	padding: 10px 30px;
 }
 
 /* Sun/Moon Phase */
@@ -109,7 +135,7 @@
 	background-color: aqua;
 	border: 1px solid black;
 	border-radius: 20px;
-	margin: 10px;
+	margin: 5px;
 	padding: 5px;
 	max-width: 200px;
 	align-items: center;
@@ -117,13 +143,12 @@
 
 /* Scroll wheel for hours styles */
 .scrolling-wrapper {
+	margin-top: 5px;
 	display: flex;
 	overflow-x: scroll;
 	position: relative;
 	scroll-behavior: smooth;
 	max-width: 820px;
-	bottom: 390px;
-	left: 226px;
 	border: 2px solid aqua;
 	border-radius: 20px;
 }
@@ -149,8 +174,20 @@
 	user-select: none;
 }
 
+/* -------------------- Middle div -------------------- */
+
 /* Displayed information styles */
-.display-details {
-	bottom: 383px;
+.display-info {
+	bottom: 672px;
+	left: 280px;
 	position: relative;
+	border: 2px solid black;
+	max-width: 1000px;
+}
+
+/* -------------------- Bottom text -------------------- */
+.bottom-row {
+	position: absolute;
+	bottom: 12px;
+	left: 20px;
 }
