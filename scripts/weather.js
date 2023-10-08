@@ -73,7 +73,7 @@ function weather() {
 
 			// Assign last updated
 			const lastUpdated = document.querySelector(".bottom-row");
-			lastUpdated.textContent = `Last updated: ${data.current.last_updated}`;
+			lastUpdated.textContent = `Last updated: ${covertTime(data.current.last_updated)}`;
 		});
 }
 
