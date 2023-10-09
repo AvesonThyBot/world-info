@@ -4,6 +4,14 @@ import * as apikey from "./apikey.js";
 let url = apikey.url;
 let options = apikey.options;
 
+// --------------- Global variables---------------
+
+const todayButton = document.querySelector("#today");
+const tommorowButton = document.querySelector("#tommorow");
+const overmorrowButton = document.querySelector("#overmorrow");
+
+// --------------- Main displaying functions ---------------
+
 let weatherData;
 // function for weather
 function weather() {
@@ -11,7 +19,6 @@ function weather() {
 	if (document.querySelector("#search-bar").value !== "") {
 		// Assign value to city variable
 		let city = document.querySelector("#search-bar").value;
-
 		// Use the city variable in the URL
 		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
 	}
@@ -20,6 +27,17 @@ function weather() {
 		.then((data) => {
 			weatherData = data;
 			console.log(data);
+
+			// Remove hide class and selected day class
+			// remove all hide class
+			document.querySelectorAll(".hide").forEach((element) => {
+				element.classList.remove("hide");
+			});
+
+			// select day class
+			todayButton.classList.add("active-day");
+			tommorowButton.classList.remove("active-day");
+			overmorrowButton.classList.remove("active-day");
 
 			// Assign location
 			const displayLocation = document.querySelector("#location");
@@ -95,6 +113,52 @@ function covertTime(date) {
 	return `${weekday}, ${day} ${month} ${year}.`;
 }
 
+// Function to put the correct hours depending on day
+function hourAssign(data, day) {
+	const hoursBox = document.querySelector(".hour-box");
+	hoursBox.innerHTML = "";
+	if (day == 1) {
+		// Assign today's hours.
+		for (let hour = 0; hour < 24; hour++) {
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+					<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
+					<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
+					<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
+					<span class="hour-humidity">${data.forecast.forecastday[0].hour[hour].humidity}q</span>
+				</div>`;
+		}
+		todayButton.classList.add("active-day");
+		tommorowButton.classList.remove("active-day");
+		overmorrowButton.classList.remove("active-day");
+	} else if (day == 2) {
+		// Assign tommorow's hours.
+		for (let hour = 0; hour < 24; hour++) {
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+					<h5 class="hour-title">${data.forecast.forecastday[1].hour[hour].time.slice(11, 16)}</h5>
+					<img class="hour-icon" src="${data.forecast.forecastday[1].hour[hour].condition.icon}" alt="" />
+					<span class="hour-temperature">${data.forecast.forecastday[1].hour[hour].temp_c}°C</span>
+					<span class="hour-humidity">${data.forecast.forecastday[1].hour[hour].humidity}q</span>
+				</div>`;
+		}
+		todayButton.classList.remove("active-day");
+		tommorowButton.classList.add("active-day");
+		overmorrowButton.classList.remove("active-day");
+	} else if (day == 3) {
+		// Assign overmorrow's hours.
+		for (let hour = 0; hour < 24; hour++) {
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+					<h5 class="hour-title">${data.forecast.forecastday[2].hour[hour].time.slice(11, 16)}</h5>
+					<img class="hour-icon" src="${data.forecast.forecastday[2].hour[hour].condition.icon}" alt="" />
+					<span class="hour-temperature">${data.forecast.forecastday[2].hour[hour].temp_c}°C</span>
+					<span class="hour-humidity">${data.forecast.forecastday[2].hour[hour].humidity}q</span>
+				</div>`;
+		}
+		todayButton.classList.remove("active-day");
+		tommorowButton.classList.remove("active-day");
+		overmorrowButton.classList.add("active-day");
+	}
+}
+
 // --------------- Search function & event listeners ---------------
 
 //variables
@@ -111,48 +175,6 @@ search.addEventListener("keydown", function (event) {
 //search event listener for click
 searchBtn.addEventListener("click", weather);
 
-// Function to put the correct hours depending on day
-function hourAssign(data, day) {
-	const hoursBox = document.querySelector(".hour-box");
-	hoursBox.innerHTML = "";
-	if (day == 1) {
-		// Assign today's hours.
-		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
-					<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
-					<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
-					<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
-					<span class="hour-humidity">${data.forecast.forecastday[0].hour[hour].humidity}q</span>
-				</div>`;
-		}
-	} else if (day == 2) {
-		// Assign tommorow's hours.
-		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
-					<h5 class="hour-title">${data.forecast.forecastday[1].hour[hour].time.slice(11, 16)}</h5>
-					<img class="hour-icon" src="${data.forecast.forecastday[1].hour[hour].condition.icon}" alt="" />
-					<span class="hour-temperature">${data.forecast.forecastday[1].hour[hour].temp_c}°C</span>
-					<span class="hour-humidity">${data.forecast.forecastday[1].hour[hour].humidity}q</span>
-				</div>`;
-		}
-	} else if (day == 3) {
-		// Assign overmorrow's hours.
-		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
-					<h5 class="hour-title">${data.forecast.forecastday[2].hour[hour].time.slice(11, 16)}</h5>
-					<img class="hour-icon" src="${data.forecast.forecastday[2].hour[hour].condition.icon}" alt="" />
-					<span class="hour-temperature">${data.forecast.forecastday[2].hour[hour].temp_c}°C</span>
-					<span class="hour-humidity">${data.forecast.forecastday[2].hour[hour].humidity}q</span>
-				</div>`;
-		}
-	}
-}
-
-// on click event listener for the 3 days
-const todayButton = document.querySelector("#today");
-const tommorowButton = document.querySelector("#tommorow");
-const overmorrowButton = document.querySelector("#overmorrow");
-
 // --------------- On click event listeners ---------------
 // Today button
 todayButton.onclick = () => {
@@ -168,8 +190,3 @@ tommorowButton.onclick = () => {
 overmorrowButton.onclick = () => {
 	hourAssign(weatherData, 3);
 };
-
-// --------------- Run program ---------------
-
-// Run program
-weather();

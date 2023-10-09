@@ -204,3 +204,17 @@
 	-moz-user-select: none;
 	-webkit-user-select: none;
 }
+
+/* -------------------- Extra stlyes -------------------- */
+
+/* hide class */
+.hide {
+	display: none;
+	opacity: 0;
+	z-index: none;
+}
+
+/* active day class */
+.active-day {
+	background-color: #ff6961 !important;
+}
