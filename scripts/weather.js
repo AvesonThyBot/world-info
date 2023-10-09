@@ -4,7 +4,7 @@ import * as apikey from "./apikey.js";
 let url = apikey.url;
 let options = apikey.options;
 
-// --------------- Global variables---------------
+// --------------- Global variables ---------------
 
 const todayButton = document.querySelector("#today");
 const tommorowButton = document.querySelector("#tommorow");
