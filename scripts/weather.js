@@ -161,7 +161,7 @@ function hourAssign(data, day) {
 		overmorrowButton.classList.add("active-day");
 	}
 
-	const hourCard0 = document.querySelector(".hour-card-0").scrollIntoView({ behavior: "smooth" });
+	hoursBox.scrollLeft = 0;
 }
 
 // --------------- Search function & event listeners ---------------
