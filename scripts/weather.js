@@ -119,7 +119,6 @@ function hourAssign(data, day) {
 	hoursBox.innerHTML = "";
 	let currentTime = data.location.localtime.slice(11, 13);
 	currentTime = currentTime.replace(/:/g, "");
-	console.log(currentTime);
 
 	if (day == 1) {
 		// Assign today's hours.
