@@ -1,10 +1,12 @@
 import { url, options } from "./apikey.js";
 
+let weatherData;
 // function for weather
 function weather() {
 	fetch(url, options)
 		.then((data) => data.json())
 		.then((data) => {
+			weatherData = data;
 			console.log(data);
 
 			// Assign location
@@ -52,16 +54,7 @@ function weather() {
 			<span id="overmorrow-low">Low - ${data.forecast.forecastday[2].day.mintemp_c}°C</span>`;
 
 			// Assign today's hours.
-			const hoursBox = document.querySelector(".hour-box");
-			hoursBox.innerHTML = "";
-			for (let hour = 0; hour < 24; hour++) {
-				hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
-				<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
-				<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
-				<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
-				<span class="hour-humidity">${data.forecast.forecastday[0].hour[hour].humidity}q</span>
-			</div>`;
-			}
+			hourAssign(data, 1);
 
 			// // Assign temperature
 			// const temperature = document.querySelector("#temperature");
@@ -90,4 +83,63 @@ function covertTime(date) {
 	return `${weekday}, ${day} ${month} ${year}.`;
 }
 
+// Function to put the correct hours depending on day
+function hourAssign(data, day) {
+	const hoursBox = document.querySelector(".hour-box");
+	hoursBox.innerHTML = "";
+	if (day == 1) {
+		// Assign today's hours.
+		for (let hour = 0; hour < 24; hour++) {
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+					<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
+					<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
+					<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
+					<span class="hour-humidity">${data.forecast.forecastday[0].hour[hour].humidity}q</span>
+				</div>`;
+		}
+	} else if (day == 2) {
+		// Assign tommorow's hours.
+		for (let hour = 0; hour < 24; hour++) {
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+					<h5 class="hour-title">${data.forecast.forecastday[1].hour[hour].time.slice(11, 16)}</h5>
+					<img class="hour-icon" src="${data.forecast.forecastday[1].hour[hour].condition.icon}" alt="" />
+					<span class="hour-temperature">${data.forecast.forecastday[1].hour[hour].temp_c}°C</span>
+					<span class="hour-humidity">${data.forecast.forecastday[1].hour[hour].humidity}q</span>
+				</div>`;
+		}
+	} else if (day == 3) {
+		// Assign overmorrow's hours.
+		for (let hour = 0; hour < 24; hour++) {
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+					<h5 class="hour-title">${data.forecast.forecastday[2].hour[hour].time.slice(11, 16)}</h5>
+					<img class="hour-icon" src="${data.forecast.forecastday[2].hour[hour].condition.icon}" alt="" />
+					<span class="hour-temperature">${data.forecast.forecastday[2].hour[hour].temp_c}°C</span>
+					<span class="hour-humidity">${data.forecast.forecastday[2].hour[hour].humidity}q</span>
+				</div>`;
+		}
+	}
+}
+
+// on click event listener for the 3 days
+
+const todayButton = document.querySelector("#today");
+const tommorowButton = document.querySelector("#tommorow");
+const overmorrowButton = document.querySelector("#overmorrow");
+
+// Today button
+todayButton.onclick = () => {
+	hourAssign(weatherData, 1);
+};
+
+// Tommorow button
+tommorowButton.onclick = () => {
+	hourAssign(weatherData, 2);
+};
+
+// Overmorrow button
+overmorrowButton.onclick = () => {
+	hourAssign(weatherData, 3);
+};
+
+// Run program
 weather();

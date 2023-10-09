@@ -184,6 +184,11 @@
 	max-width: 1000px;
 }
 
+.display-info div {
+	margin: 10px;
+	padding: 10px;
+}
+
 .display-info {
 	position: relative;
 	border: 2px solid black;
