@@ -58,6 +58,7 @@
 	flex-direction: column;
 	max-width: 250px;
 	margin: 10px;
+	text-align: center;
 }
 
 /* Day information styles */
