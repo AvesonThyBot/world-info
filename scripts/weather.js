@@ -117,9 +117,13 @@ function covertTime(date) {
 function hourAssign(data, day) {
 	const hoursBox = document.querySelector(".hour-box");
 	hoursBox.innerHTML = "";
+	let currentTime = data.location.localtime.slice(11, 13);
+	currentTime = currentTime.replace(/:/g, "");
+	console.log(currentTime);
+
 	if (day == 1) {
 		// Assign today's hours.
-		for (let hour = 0; hour < 24; hour++) {
+		for (let hour = currentTime; hour < 24; hour++) {
 			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
 					<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />

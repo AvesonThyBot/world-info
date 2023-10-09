@@ -149,6 +149,7 @@
 	overflow-x: scroll;
 	position: relative;
 	scroll-behavior: smooth;
+	min-width: 820px;
 	max-width: 820px;
 	border: 2px solid aqua;
 	border-radius: 20px;
