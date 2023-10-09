@@ -15,11 +15,19 @@ const overmorrowButton = document.querySelector("#overmorrow");
 let weatherData;
 // function for weather
 function weather() {
-	// Assign data based on search
-	if (document.querySelector("#search-bar").value !== "") {
-		// Assign value to city variable
+	// Import countryName
+	const countryName = localStorage.getItem("countryName");
+	localStorage.removeItem("countryName");
+
+	// Use the URL with countryName if it exists
+	if (countryName !== null) {
+		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${countryName}&days=3`;
+		console.log(url, countryName);
+	}
+
+	// If countryName is null and search bar has a value, use the city variable in the URL
+	if (countryName === null && document.querySelector("#search-bar").value !== "") {
 		let city = document.querySelector("#search-bar").value;
-		// Use the city variable in the URL
 		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
 	}
 	fetch(url, options)
