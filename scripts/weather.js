@@ -160,6 +160,8 @@ function hourAssign(data, day) {
 		tommorowButton.classList.remove("active-day");
 		overmorrowButton.classList.add("active-day");
 	}
+
+	const hourCard0 = document.querySelector(".hour-card-0").scrollIntoView({ behavior: "smooth" });
 }
 
 // --------------- Search function & event listeners ---------------
