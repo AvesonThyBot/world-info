@@ -83,6 +83,20 @@ function covertTime(date) {
 	return `${weekday}, ${day} ${month} ${year}.`;
 }
 
+// Function & event listener for search
+const search = document.querySelector("#search-bar");
+const searchBtn = document.querySelector("#search-button");
+
+// search event listener for enter
+search.addEventListener("keydown", function (event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		weather();
+	}
+});
+//search event listener for click
+searchBtn.addEventListener("click", weather);
+
 // Function to put the correct hours depending on day
 function hourAssign(data, day) {
 	const hoursBox = document.querySelector(".hour-box");
@@ -121,7 +135,6 @@ function hourAssign(data, day) {
 }
 
 // on click event listener for the 3 days
-
 const todayButton = document.querySelector("#today");
 const tommorowButton = document.querySelector("#tommorow");
 const overmorrowButton = document.querySelector("#overmorrow");
