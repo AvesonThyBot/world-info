@@ -120,7 +120,7 @@ function hourAssign(data, day) {
 	if (day == 1) {
 		// Assign today's hours.
 		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
 					<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
 					<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
@@ -133,7 +133,7 @@ function hourAssign(data, day) {
 	} else if (day == 2) {
 		// Assign tommorow's hours.
 		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
 					<h5 class="hour-title">${data.forecast.forecastday[1].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[1].hour[hour].condition.icon}" alt="" />
 					<span class="hour-temperature">${data.forecast.forecastday[1].hour[hour].temp_c}°C</span>
@@ -146,7 +146,7 @@ function hourAssign(data, day) {
 	} else if (day == 3) {
 		// Assign overmorrow's hours.
 		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card">
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
 					<h5 class="hour-title">${data.forecast.forecastday[2].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[2].hour[hour].condition.icon}" alt="" />
 					<span class="hour-temperature">${data.forecast.forecastday[2].hour[hour].temp_c}°C</span>
