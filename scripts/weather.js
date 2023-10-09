@@ -1,8 +1,20 @@
-import { url, options } from "./apikey.js";
+// --------------- Import api key ---------------
+import * as apikey from "./apikey.js";
+
+let url = apikey.url;
+let options = apikey.options;
 
 let weatherData;
 // function for weather
 function weather() {
+	// Assign data based on search
+	if (document.querySelector("#search-bar").value !== "") {
+		// Assign value to city variable
+		let city = document.querySelector("#search-bar").value;
+
+		// Use the city variable in the URL
+		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
+	}
 	fetch(url, options)
 		.then((data) => data.json())
 		.then((data) => {
@@ -83,7 +95,9 @@ function covertTime(date) {
 	return `${weekday}, ${day} ${month} ${year}.`;
 }
 
-// Function & event listener for search
+// --------------- Search function & event listeners ---------------
+
+//variables
 const search = document.querySelector("#search-bar");
 const searchBtn = document.querySelector("#search-button");
 
@@ -139,6 +153,7 @@ const todayButton = document.querySelector("#today");
 const tommorowButton = document.querySelector("#tommorow");
 const overmorrowButton = document.querySelector("#overmorrow");
 
+// --------------- On click event listeners ---------------
 // Today button
 todayButton.onclick = () => {
 	hourAssign(weatherData, 1);
@@ -153,6 +168,8 @@ tommorowButton.onclick = () => {
 overmorrowButton.onclick = () => {
 	hourAssign(weatherData, 3);
 };
+
+// --------------- Run program ---------------
 
 // Run program
 weather();
