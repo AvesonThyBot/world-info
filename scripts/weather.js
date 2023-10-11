@@ -12,17 +12,22 @@ const overmorrowButton = document.querySelector("#overmorrow");
 
 // --------------- Main displaying functions ---------------
 
+// Import countryName
+
+const countryName = localStorage.getItem("countryName");
+localStorage.removeItem("countryName");
+
+// Use the URL with countryName if it exists
+if (countryName !== null) {
+	weather();
+}
+
 let weatherData;
 // function for weather
 function weather() {
-	// Import countryName
-	const countryName = localStorage.getItem("countryName");
-	localStorage.removeItem("countryName");
-
 	// Use the URL with countryName if it exists
 	if (countryName !== null) {
 		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${countryName}&days=3`;
-		console.log(url, countryName);
 	}
 
 	// If countryName is null and search bar has a value, use the city variable in the URL
