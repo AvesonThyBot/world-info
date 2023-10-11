@@ -173,6 +173,10 @@ function hourAssign(data, day) {
 		overmorrowButton.classList.add("active-day");
 	}
 
+	// assigns first hour the active hour
+	hoursBox.firstElementChild.classList.add("active-hour");
+
+	// scroll to start of hourBox
 	hoursBox.scrollLeft = 0;
 }
 
