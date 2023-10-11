@@ -58,12 +58,13 @@ function popupModal(data, countryName) {
 
 	// console.log(data);
 
-	modalBody.innerHTML = `<span id="country-time">${covertTime(data.location.localtime)}</span>
-        <span id="country-tz">${data.location.tz_id}</span>
-        <span id="country-lat">Lat: ${data.location.lat}</span>
-        <span id="country-lon">Lon: ${data.location.lon}</span>
-        <span id="country-name">${data.location.name}</span>
-        <span id="country-region">${data.location.region}</span>
+	modalBody.innerHTML = `<span id="country-time">${convertTime(data.location.localtime)}</span>
+        <span id="country-tz">${data.location.tz_id}</span><br>
+        <span id="country-time">${convertTime(data.location.localtime)}</span><br>
+        <span id="country-lat">Lat: ${data.location.lat}</span><br>
+        <span id="country-lon">Lon: ${data.location.lon}</span><br>
+        <span id="country-name">${data.location.name}</span><br>
+        <span id="country-region">${data.location.region}</span><br>
         <a href="/weather.html" id="check-weather">Check Weather</a>`;
 
 	countryModal.show();
@@ -73,7 +74,7 @@ function popupModal(data, countryName) {
 }
 
 // Filter to local time in word format
-function covertTime(date) {
+function convertTime(date) {
 	// variables
 	let weekday = new Date(date).getDay();
 	weekday = isNaN(weekday) ? null : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][weekday];

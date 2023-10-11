@@ -61,7 +61,7 @@ function weather() {
 
 			// Assign date & time
 			const dateDiv = document.querySelector("#date");
-			dateDiv.textContent = `Date: ${covertTime(data.location.localtime)}`;
+			dateDiv.textContent = `Date: ${convertTime(data.location.localtime)}`;
 			const timeDiv = document.querySelector("#time");
 			timeDiv.textContent = `Time: ${data.location.localtime.slice(11, 16)}`;
 
@@ -80,17 +80,17 @@ function weather() {
 			const tommorow = document.querySelector("#tommorow");
 			const overmorrow = document.querySelector("#overmorrow");
 			// Today container
-			today.innerHTML = `<p id="today-title">${covertTime(data.forecast.forecastday[0].date)}</p>
+			today.innerHTML = `<p id="today-title">${convertTime(data.forecast.forecastday[0].date)}</p>
 			<span class="icon-container"><img id="today-icon" src="${data.forecast.forecastday[0].day.condition.icon}" alt="weather icon" /></span>
 			<span id="today-high">High - ${data.forecast.forecastday[0].day.maxtemp_c}°C</span>
 			<span id="today-low">Low - ${data.forecast.forecastday[0].day.mintemp_c}°C</span>`;
 			// Tommorow container
-			tommorow.innerHTML = `<p id="tommorow-title">${covertTime(data.forecast.forecastday[1].date)}</p>
+			tommorow.innerHTML = `<p id="tommorow-title">${convertTime(data.forecast.forecastday[1].date)}</p>
 			<span class="icon-container"><img id="tommorow-icon" src="${data.forecast.forecastday[1].day.condition.icon}" alt="weather icon" /></span>
 			<span id="tommorow-high">High - ${data.forecast.forecastday[1].day.maxtemp_c}°C</span>
 			<span id="tommorow-low">Low - ${data.forecast.forecastday[1].day.mintemp_c}°C</span>`;
 			// Overmorrow container
-			overmorrow.innerHTML = `<p id="overmorrow-title">${covertTime(data.forecast.forecastday[2].date)}</p>
+			overmorrow.innerHTML = `<p id="overmorrow-title">${convertTime(data.forecast.forecastday[2].date)}</p>
 			<span class="icon-container"><img id="overmorrow-icon" src="${data.forecast.forecastday[2].day.condition.icon}" alt="weather icon" /></span>
 			<span id="overmorrow-high">High - ${data.forecast.forecastday[2].day.maxtemp_c}°C</span>
 			<span id="overmorrow-low">Low - ${data.forecast.forecastday[2].day.mintemp_c}°C</span>`;
@@ -108,12 +108,12 @@ function weather() {
 
 			// Assign last updated
 			const lastUpdated = document.querySelector(".bottom-row");
-			lastUpdated.textContent = `Last updated: ${covertTime(data.current.last_updated)}`;
+			lastUpdated.textContent = `Last updated: ${convertTime(data.current.last_updated)}`;
 		});
 }
 
 // Filter to local time in word format
-function covertTime(date) {
+function convertTime(date) {
 	// variables
 	let weekday = new Date(date).getDay();
 	weekday = isNaN(weekday) ? null : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][weekday];
