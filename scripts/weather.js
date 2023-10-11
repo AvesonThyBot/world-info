@@ -12,27 +12,43 @@ const overmorrowButton = document.querySelector("#overmorrow");
 
 // --------------- Main displaying functions ---------------
 
+// Check if the browser supports geolocation
+window.onload = function () {
+	if (navigator.geolocation) {
+		weather(3);
+	}
+};
 // Import countryName
 const countryName = localStorage.getItem("countryName");
 
 // Use the URL with countryName if it exists
 if (localStorage.getItem("countryName") !== null) {
-	weather();
+	weather(1);
 }
 
 let weatherData;
 // function for weather
-function weather() {
-	// Use the URL with countryName if it exists
-	if (localStorage.getItem("countryName") !== null) {
-		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${countryName}&days=3`;
-		localStorage.removeItem("countryName");
-	}
-
-	// If countryName is null and search bar has a value, use the city variable in the URL
-	if (localStorage.getItem("countryName") === null && document.querySelector("#search-bar").value !== "") {
-		let city = document.querySelector("#search-bar").value;
-		url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
+function weather(option) {
+	// iterate the right option
+	if (option === 1) {
+		if (localStorage.getItem("countryName") !== null) {
+			// Use the URL with countryName if it exists
+			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${countryName}&days=3`;
+			localStorage.removeItem("countryName");
+		}
+	} else if (option === 2) {
+		// If countryName is null and search bar has a value, use the city variable in the URL
+		if (localStorage.getItem("countryName") === null && document.querySelector("#search-bar").value !== "") {
+			let city = document.querySelector("#search-bar").value;
+			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
+		}
+	} else if (option === 3) {
+		navigator.geolocation.getCurrentPosition((position) => {
+			const latitude = position.coords.latitude;
+			const longitude = position.coords.longitude;
+			let city = `${latitude} ${longitude}`;
+			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${latitude} ${longitude}&days=3`;
+		});
 	}
 	fetch(url, options)
 		.then((data) => data.json())
@@ -180,6 +196,9 @@ function hourAssign(data, day) {
 	hoursBox.scrollLeft = 0;
 }
 
+// Function for displaying the center div
+function displayCenter() {}
+
 // --------------- Search function & event listeners ---------------
 
 //variables
@@ -190,11 +209,13 @@ const searchBtn = document.querySelector("#search-button");
 search.addEventListener("keydown", function (event) {
 	if (event.key === "Enter") {
 		event.preventDefault();
-		weather();
+		weather(2);
 	}
 });
 //search event listener for click
-searchBtn.addEventListener("click", weather);
+searchBtn.onclick = () => {
+	weather(2);
+};
 
 // --------------- On click event listeners ---------------
 // Today button
