@@ -114,13 +114,8 @@ function weather(option) {
 			// Assign today's hours.
 			hourAssign(data, 1);
 
-			// // Assign temperature
-			// const temperature = document.querySelector("#temperature");
-			// temperature.textContent = `Temperature: ${data.current.temp_c}°C`;
-
-			// // Assign wind speed
-			// const windSpeed = document.querySelector("#wind-speed");
-			// windSpeed.textContent = `Wind Speed: ${data.current.wind_kph} km/h`;
+			// Middle div
+			displayCenter();
 
 			// Assign last updated
 			const lastUpdated = document.querySelector(".bottom-row");
@@ -197,7 +192,13 @@ function hourAssign(data, day) {
 }
 
 // Function for displaying the center div
-function displayCenter() {}
+function displayCenter() {
+	// variables
+	const detailsHourly = document.querySelector(".details-hourly");
+	const detailsDay = document.querySelector(".details-day");
+	detailsHourly.innerHTML = "Hello!";
+	detailsDay.innerHTML = "Hello!";
+}
 
 // --------------- Search function & event listeners ---------------
 
