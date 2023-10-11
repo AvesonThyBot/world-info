@@ -58,13 +58,12 @@ function popupModal(data, countryName) {
 
 	// console.log(data);
 
-	modalBody.innerHTML = `<span id="country-time">${convertTime(data.location.localtime)}</span>
-        <span id="country-tz">${data.location.tz_id}</span><br>
-        <span id="country-time">${convertTime(data.location.localtime)}</span><br>
-        <span id="country-lat">Lat: ${data.location.lat}</span><br>
-        <span id="country-lon">Lon: ${data.location.lon}</span><br>
-        <span id="country-name">${data.location.name}</span><br>
-        <span id="country-region">${data.location.region}</span><br>
+	modalBody.innerHTML = `<span id="country-time">Time in ${countryName}: ${convertTime(data.location.localtime)}</span><br>
+        <span id="country-tz">Timezone: ${data.location.tz_id}</span><br>
+        <span id="country-lat">Latitude: ${data.location.lat}</span><br>
+        <span id="country-lon">Longitude: ${data.location.lon}</span><br>
+        <span id="country-name">Name: ${data.location.name}</span><br>
+        <span id="country-region">Region: ${data.location.region}</span><br>
         <a href="/weather.html" id="check-weather">Check Weather</a>`;
 
 	countryModal.show();
