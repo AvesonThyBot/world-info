@@ -1,6 +1,3 @@
 // type writer
-const typeWriter = document.getElementById("typewriter-text");
-const text = "Lorem ipsum dolor sit amet.";
-
-typeWriter.innerHTML = text;
-typeWriter.style.setProperty("--characters", text.length);
+document.querySelector(".typewriter-effect").innerHTML = "This website is dedicated to displaying the statistics and weather of the world using a SVG map and Weather API.";
+document.querySelector(".typewriter-effect").style.setProperty("--characters", text.length);
