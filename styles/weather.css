@@ -98,9 +98,8 @@
 /* -------------------- Top row -------------------- */
 /* Top row */
 .top-row {
-	/* margin: 10px 0; */
 	position: relative;
-	bottom: 687px;
+	bottom: 663px;
 	left: 238px;
 }
 /* Weather Info */
