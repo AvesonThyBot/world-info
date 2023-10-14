@@ -192,16 +192,13 @@ function hourAssign(data, day) {
 // Function for displaying the center div
 function displayCenter(data) {
 	// variables
-	const hourlyChances = document.querySelector(".chances");
-	const detailsDay = document.querySelector(".details-day");
-	// assign day and hour
-	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12);
-	const detailDay = document.querySelector(".active-day").classList[0];
-	console.log(detailDay, detailHour);
+	const hourlyChances = document.querySelector(".chances"); //hourly chances
+	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12); // selected hour
+	const detailDay = document.querySelector(".active-day").classList[0]; // selected day
 
 	// hourly details
 	hourlyChances.innerHTML = `
-	<span id="chance-of-rain">Chance of raining: ${data.forecast.forecastday[0].hour[0].chance_of_rain}%</span>
+	<span id="chance-of-rain">Chance of raining: ${data.forecast.forecastday[detailDay].hour[detailHour].chance_of_rain}%</span>
 	<br>
 	<span id="chance-of-snow">Chance of snowing: ${data.forecast.forecastday[0].hour[0].chance_of_snow}%</span>
 	`;
