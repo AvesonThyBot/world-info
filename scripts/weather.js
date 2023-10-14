@@ -33,21 +33,21 @@ function weather(option) {
 	if (option === 1) {
 		if (localStorage.getItem("countryName") !== null) {
 			// Use the URL with countryName if it exists
-			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${countryName}&days=3`;
+			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${countryName}&days=3&aqi=yes`;
 			localStorage.removeItem("countryName");
 		}
 	} else if (option === 2) {
 		// If countryName is null and search bar has a value, use the city variable in the URL
 		if (localStorage.getItem("countryName") === null && document.querySelector("#search-bar").value !== "") {
 			let city = document.querySelector("#search-bar").value;
-			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3`;
+			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=3&aqi=yes`;
 		}
 	} else if (option === 3) {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const latitude = position.coords.latitude;
 			const longitude = position.coords.longitude;
 			let city = `${latitude} ${longitude}`;
-			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${latitude} ${longitude}&days=3`;
+			url = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${latitude} ${longitude}&days=3&aqi=yes`;
 		});
 	}
 	fetch(url, options)
@@ -196,8 +196,8 @@ function displayCenter() {
 	// variables
 	const detailsHourly = document.querySelector(".details-hourly");
 	const detailsDay = document.querySelector(".details-day");
-	detailsHourly.innerHTML = "Hello!";
-	detailsDay.innerHTML = "Hello!";
+	detailsHourly.innerHTML = `<h3>Hour!</h3>`;
+	detailsDay.innerHTML = `<h3>Day!</h3>`;
 }
 
 // --------------- Search function & event listeners ---------------
