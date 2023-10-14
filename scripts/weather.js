@@ -119,7 +119,7 @@ function weather(option) {
 
 			// Assign last updated
 			const lastUpdated = document.querySelector(".bottom-row");
-			lastUpdated.textContent = `Last updated: ${convertTime(data.current.last_updated)}`;
+			lastUpdated.textContent = `Last updated ${parseInt(data.location.localtime.slice(14, 16)) - parseInt(data.current.last_updated.slice(14, 16))} minutes ago.`;
 		});
 }
 
