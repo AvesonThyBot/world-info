@@ -193,7 +193,6 @@ function displayCenter(data) {
 	const hourlyWind = document.querySelector(".hourly-wind"); //hourly condition
 	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12); // selected hour
 	const detailDay = document.querySelector(".active-day").classList[0]; // selected day
-	console.log(data.forecast.forecastday[detailDay].hour[detailHour]);
 
 	// hourly details
 	hourlyChances.innerHTML = `
@@ -215,6 +214,9 @@ function displayCenter(data) {
 	<span id="wind-chill">Wind Chill: ${data.forecast.forecastday[detailDay].hour[detailHour].windchill_c}°C</span>
 	<br>
 	<span id="wind-direction">Wind Direction: ${data.forecast.forecastday[detailDay].hour[detailHour].wind_dir} (${data.forecast.forecastday[detailDay].hour[detailHour].wind_degree}°)</span>`;
+
+	// daily details
+	console.log(data.forecast.forecastday[detailDay]);
 
 	// air quality div
 }
