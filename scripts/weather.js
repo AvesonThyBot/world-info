@@ -115,7 +115,7 @@ function weather(option) {
 			hourAssign(data, 1);
 
 			// Middle div
-			displayCenter();
+			displayCenter(data);
 
 			// Assign last updated
 			const lastUpdated = document.querySelector(".bottom-row");
@@ -192,12 +192,24 @@ function hourAssign(data, day) {
 }
 
 // Function for displaying the center div
-function displayCenter() {
+function displayCenter(data) {
 	// variables
 	const detailsHourly = document.querySelector(".details-hourly");
 	const detailsDay = document.querySelector(".details-day");
-	detailsHourly.innerHTML = `<h3>Hour!</h3>`;
-	detailsDay.innerHTML = `<h3>Day!</h3>`;
+	// assign day and hour
+	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12);
+	const detailDay = document.querySelector(".active-day").classList[0];
+	console.log(detailDay), detailHour;
+
+	// hourly details
+	detailsHourly.innerHTML += `<div class="chances">
+	<span id="chance-of-rain">Chance of raining: ${data.forecast.forecastday[0].hour[0].chance_of_rain}%</span>
+	<br>
+	<span id="chance-of-snow">Chance of snowing: ${data.forecast.forecastday[0].hour[0].chance_of_snow}%</span>
+	</div>`;
+
+	// air quality div
+	detailsDay.innerHTML += `<div class="air-quality"></div>`;
 }
 
 // --------------- Search function & event listeners ---------------
