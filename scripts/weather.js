@@ -243,7 +243,7 @@ overmorrowButton.onclick = () => {
 	hourAssign(weatherData, 3);
 };
 
-// active hour
+// active hour box
 const hourBox = document.querySelector(".hour-box");
 hourBox.addEventListener("click", (event) => {
 	const clickedCard = event.target.closest(".hour-card");
