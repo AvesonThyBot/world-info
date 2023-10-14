@@ -54,7 +54,7 @@ function weather(option) {
 		.then((data) => data.json())
 		.then((data) => {
 			weatherData = data;
-			console.log(data);
+			// console.log(data);
 
 			// Remove hide class and selected day class
 			// remove all hide class
@@ -193,15 +193,20 @@ function hourAssign(data, day) {
 function displayCenter(data) {
 	// variables
 	const hourlyChances = document.querySelector(".chances"); //hourly chances
+	const hourlyCondition = document.querySelector(".hourly-condition"); //hourly condition
 	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12); // selected hour
 	const detailDay = document.querySelector(".active-day").classList[0]; // selected day
+	console.log(data.forecast.forecastday[detailDay].hour[detailHour]);
 
 	// hourly details
 	hourlyChances.innerHTML = `
 	<span id="chance-of-rain">Chance of raining: ${data.forecast.forecastday[detailDay].hour[detailHour].chance_of_rain}%</span>
 	<br>
-	<span id="chance-of-snow">Chance of snowing: ${data.forecast.forecastday[0].hour[0].chance_of_snow}%</span>
+	<span id="chance-of-snow">Chance of snowing: ${data.forecast.forecastday[detailDay].hour[detailHour].chance_of_snow}%</span>
 	`;
+	hourlyCondition.innerHTML = `
+	<div class="condition-image-container"><img class="hour-icon" src="${data.forecast.forecastday[detailDay].hour[detailHour].condition.icon}" alt="" /> </div>
+	<span class="condition-text">${data.forecast.forecastday[detailDay].hour[detailHour].condition.text}</span>`;
 
 	// air quality div
 }
