@@ -194,6 +194,7 @@ function displayCenter(data) {
 	// variables
 	const hourlyChances = document.querySelector(".chances"); //hourly chances
 	const hourlyCondition = document.querySelector(".hourly-condition"); //hourly condition
+	const hourlyWind = document.querySelector(".hourly-wind"); //hourly condition
 	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12); // selected hour
 	const detailDay = document.querySelector(".active-day").classList[0]; // selected day
 	console.log(data.forecast.forecastday[detailDay].hour[detailHour]);
