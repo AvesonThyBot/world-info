@@ -111,11 +111,8 @@ function weather(option) {
 			<span id="overmorrow-high">High - ${data.forecast.forecastday[2].day.maxtemp_c}°C</span>
 			<span id="overmorrow-low">Low - ${data.forecast.forecastday[2].day.mintemp_c}°C</span>`;
 
-			// Assign today's hours.
+			// Assign today's hours & runs displayCenter.
 			hourAssign(data, 1);
-
-			// Middle div
-			displayCenter(data);
 
 			// Assign last updated
 			const lastUpdated = document.querySelector(".bottom-row");
@@ -146,7 +143,7 @@ function hourAssign(data, day) {
 	if (day == 1) {
 		// Assign today's hours.
 		for (let hour = currentTime; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" >
 					<h5 class="hour-title">${data.forecast.forecastday[0].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[0].hour[hour].condition.icon}" alt="" />
 					<span class="hour-temperature">${data.forecast.forecastday[0].hour[hour].temp_c}°C</span>
@@ -159,7 +156,7 @@ function hourAssign(data, day) {
 	} else if (day == 2) {
 		// Assign tommorow's hours.
 		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" >
 					<h5 class="hour-title">${data.forecast.forecastday[1].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[1].hour[hour].condition.icon}" alt="" />
 					<span class="hour-temperature">${data.forecast.forecastday[1].hour[hour].temp_c}°C</span>
@@ -172,7 +169,7 @@ function hourAssign(data, day) {
 	} else if (day == 3) {
 		// Assign overmorrow's hours.
 		for (let hour = 0; hour < 24; hour++) {
-			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" onclick="activeHour(this)">
+			hoursBox.innerHTML += `						<div class="hour-card-${hour} hour-card" >
 					<h5 class="hour-title">${data.forecast.forecastday[2].hour[hour].time.slice(11, 16)}</h5>
 					<img class="hour-icon" src="${data.forecast.forecastday[2].hour[hour].condition.icon}" alt="" />
 					<span class="hour-temperature">${data.forecast.forecastday[2].hour[hour].temp_c}°C</span>
@@ -189,27 +186,27 @@ function hourAssign(data, day) {
 
 	// scroll to start of hourBox
 	hoursBox.scrollLeft = 0;
+	displayCenter(weatherData);
 }
 
 // Function for displaying the center div
 function displayCenter(data) {
 	// variables
-	const detailsHourly = document.querySelector(".details-hourly");
+	const hourlyChances = document.querySelector(".chances");
 	const detailsDay = document.querySelector(".details-day");
 	// assign day and hour
 	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12);
 	const detailDay = document.querySelector(".active-day").classList[0];
-	console.log(detailDay), detailHour;
+	console.log(detailDay, detailHour);
 
 	// hourly details
-	detailsHourly.innerHTML += `<div class="chances">
+	hourlyChances.innerHTML = `
 	<span id="chance-of-rain">Chance of raining: ${data.forecast.forecastday[0].hour[0].chance_of_rain}%</span>
 	<br>
 	<span id="chance-of-snow">Chance of snowing: ${data.forecast.forecastday[0].hour[0].chance_of_snow}%</span>
-	</div>`;
+	`;
 
 	// air quality div
-	detailsDay.innerHTML += `<div class="air-quality"></div>`;
 }
 
 // --------------- Search function & event listeners ---------------
@@ -245,3 +242,18 @@ tommorowButton.onclick = () => {
 overmorrowButton.onclick = () => {
 	hourAssign(weatherData, 3);
 };
+
+// active hour
+const hourBox = document.querySelector(".hour-box");
+hourBox.addEventListener("click", (event) => {
+	const clickedCard = event.target.closest(".hour-card");
+	if (clickedCard) {
+		document.querySelectorAll(".hour-card").forEach((hour) => {
+			hour.classList.remove("active-hour");
+		});
+
+		// Directly add class to the clicked element
+		clickedCard.classList.add("active-hour");
+		displayCenter(weatherData);
+	}
+});
