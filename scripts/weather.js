@@ -207,7 +207,18 @@ function displayCenter(data) {
 	`;
 	hourlyCondition.innerHTML = `
 	<div class="condition-image-container"><img class="hour-icon" src="${data.forecast.forecastday[detailDay].hour[detailHour].condition.icon}" alt="" /> </div>
-	<span class="condition-text">${data.forecast.forecastday[detailDay].hour[detailHour].condition.text}</span>`;
+	<span id="condition-text">${data.forecast.forecastday[detailDay].hour[detailHour].condition.text}</span><br>
+	<span id="cloud">Cloud coverage: ${data.forecast.forecastday[detailDay].hour[detailHour].cloud}%</span><br>
+	<span id="humidity">Humidity: ${data.forecast.forecastday[detailDay].hour[detailHour].humidity}q</span><br>
+	<span id="uv">UV: ${data.forecast.forecastday[detailDay].hour[detailHour].uv}</span>
+	`;
+
+	hourlyWind.innerHTML = `
+	<span id="wind-speed">Wind Speed: ${data.forecast.forecastday[detailDay].hour[detailHour].wind_kph} kph</span>
+	<br>
+	<span id="wind-chill">Wind Chill: ${data.forecast.forecastday[detailDay].hour[detailHour].windchill_c}°C</span>
+	<br>
+	<span id="wind-direction">Wind Direction: ${data.forecast.forecastday[detailDay].hour[detailHour].wind_dir} (${data.forecast.forecastday[detailDay].hour[detailHour].wind_degree}°)</span>`;
 
 	// air quality div
 }
