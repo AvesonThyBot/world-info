@@ -84,12 +84,8 @@ function weather(option) {
 			// Assign sun & moon rise/set
 			const sunrise = document.querySelector("#sunrise");
 			const sunset = document.querySelector("#sunset");
-			const moonrise = document.querySelector("#moonrise");
-			const moonset = document.querySelector("#moonset");
 			sunrise.textContent = `Sunrise: ${data.forecast.forecastday[0].astro.sunrise}`;
 			sunset.textContent = `Sunset: ${data.forecast.forecastday[0].astro.sunset}`;
-			moonrise.textContent = `Moonrise: ${data.forecast.forecastday[0].astro.moonrise}`;
-			moonset.textContent = `Moonset: ${data.forecast.forecastday[0].astro.moonset}`;
 
 			// Assign each day's date
 			const today = document.querySelector("#today");

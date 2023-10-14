@@ -115,33 +115,6 @@
 	margin-left: 10px;
 }
 
-/* Main details */
-.main-details {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
-
-/* Weather Info */
-.weather-info {
-	flex: 1 1;
-	position: relative;
-	padding: 10px 30px;
-}
-
-/* Sun/Moon Phase */
-.main-details span {
-	display: flex;
-	flex-direction: column;
-	background-color: aqua;
-	border: 1px solid black;
-	border-radius: 20px;
-	margin: 5px;
-	padding: 5px;
-	max-width: 200px;
-	align-items: center;
-}
-
 /* Scroll wheel for hours styles */
 .scrolling-wrapper {
 	margin-top: 5px;
@@ -150,7 +123,7 @@
 	position: relative;
 	scroll-behavior: smooth;
 	min-width: 820px;
-	max-width: 820px;
+	max-width: 1000px;
 	border: 2px solid aqua;
 	border-radius: 20px;
 }
@@ -184,6 +157,32 @@
 }
 
 /* -------------------- Middle div -------------------- */
+/* Main details */
+.main-details {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Weather Info */
+.weather-info {
+	flex: 1 1;
+	position: relative;
+	padding: 10px 30px;
+}
+
+/* Sun/Moon Phase */
+.main-details span {
+	display: flex;
+	flex-direction: column;
+	background-color: aqua;
+	border: 1px solid black;
+	border-radius: 20px;
+	margin: 5px;
+	padding: 5px;
+	max-width: 200px;
+	align-items: center;
+}
 
 /* Displayed information styles */
 .center-div {
