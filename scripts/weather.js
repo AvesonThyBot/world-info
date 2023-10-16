@@ -54,7 +54,7 @@ function weather(option) {
 		.then((data) => data.json())
 		.then((data) => {
 			weatherData = data;
-			// console.log(data);
+			console.log(data);
 
 			// Remove hide class and selected day class
 			// remove all hide class
@@ -80,12 +80,6 @@ function weather(option) {
 			dateDiv.textContent = `Date: ${convertTime(data.location.localtime)}`;
 			const timeDiv = document.querySelector("#time");
 			timeDiv.textContent = `Time: ${data.location.localtime.slice(11, 16)}`;
-
-			// Assign sun & moon rise/set
-			const sunrise = document.querySelector("#sunrise");
-			const sunset = document.querySelector("#sunset");
-			sunrise.textContent = `Sunrise: ${data.forecast.forecastday[0].astro.sunrise}`;
-			sunset.textContent = `Sunset: ${data.forecast.forecastday[0].astro.sunset}`;
 
 			// Assign each day's date
 			const today = document.querySelector("#today");
@@ -190,7 +184,8 @@ function displayCenter(data) {
 	// variables
 	const hourlyChances = document.querySelector(".chances"); //hourly chances
 	const hourlyCondition = document.querySelector(".hourly-condition"); //hourly condition
-	const hourlyWind = document.querySelector(".hourly-wind"); //hourly condition
+	const hourlyWind = document.querySelector(".hourly-wind"); //hourly wind
+	const dailyDetails = document.querySelector(".main-details"); // hourly main details
 	const detailHour = document.querySelector(".active-hour").classList[0].slice(10, 12); // selected hour
 	const detailDay = document.querySelector(".active-day").classList[0]; // selected day
 
@@ -219,7 +214,14 @@ function displayCenter(data) {
 	<span id="wind-direction">Wind Direction: ${data.forecast.forecastday[detailDay].hour[detailHour].wind_dir} (${data.forecast.forecastday[detailDay].hour[detailHour].wind_degree}°)</span>`;
 
 	// daily details
-	console.log(data.forecast.forecastday[detailDay]);
+	dailyDetails.innerHTML = `
+	<span id="sunrise">Sunrise: ${data.forecast.forecastday[detailDay].astro.sunrise}</span>
+	<span id="sunset">Sunset: ${data.forecast.forecastday[detailDay].astro.sunset}</span>
+	<span id="daily-temp">Average temperature: ${data.forecast.forecastday[detailDay].day.avgtemp_c}°C</span>
+	<span id="daily-humidity">Average humidity: ${data.forecast.forecastday[detailDay].day.avghumidity}q</span>
+	<span id="daily-uv">UV index: ${data.forecast.forecastday[detailDay].day.uv}</span>
+	`;
+	console.log(data.forecast.forecastday[detailDay].day);
 
 	// air quality div
 }

@@ -175,13 +175,6 @@
 .main-details span {
 	display: flex;
 	flex-direction: column;
-	background-color: aqua;
-	border: 1px solid black;
-	border-radius: 20px;
-	margin: 5px;
-	padding: 5px;
-	max-width: 200px;
-	align-items: center;
 }
 
 /* Displayed information styles */
@@ -203,6 +196,7 @@
 }
 
 .details-hourly {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
