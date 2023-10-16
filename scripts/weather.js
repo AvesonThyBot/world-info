@@ -221,9 +221,24 @@ function displayCenter(data) {
 	<span id="daily-humidity">Average humidity: ${data.forecast.forecastday[detailDay].day.avghumidity}q</span>
 	<span id="daily-uv">UV index: ${data.forecast.forecastday[detailDay].day.uv}</span>
 	`;
-	console.log(data.forecast.forecastday[detailDay].day);
 
-	// air quality div
+	const airQualityData = data.current.air_quality;
+	const excludedProperties = ["us-epa-index", "gb-defra-index"];
+	const tableBody = document.getElementById("air-quality-table-body");
+	for (const parameter in airQualityData) {
+		if (Object.hasOwnProperty.call(airQualityData, parameter) && !excludedProperties.includes(parameter)) {
+			const value = airQualityData[parameter];
+
+			const row = document.createElement("tr");
+			row.innerHTML = `
+			<td>${parameter}</td>
+			<td>${value}</td>
+		  `;
+
+			tableBody.appendChild(row);
+		}
+	}
+	console.log(airQualityData);
 }
 
 // --------------- Search function & event listeners ---------------
