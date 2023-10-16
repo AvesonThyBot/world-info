@@ -196,12 +196,14 @@ function displayCenter(data) {
 
 	// hourly details
 	hourlyChances.innerHTML = `
+	<h4>Chances</h4>
 	<span id="chance-of-rain">Chance of raining: ${data.forecast.forecastday[detailDay].hour[detailHour].chance_of_rain}%</span>
 	<br>
 	<span id="chance-of-snow">Chance of snowing: ${data.forecast.forecastday[detailDay].hour[detailHour].chance_of_snow}%</span>
 	`;
 	hourlyCondition.innerHTML = `
-	<div class="condition-image-container"><img class="hour-icon" src="${data.forecast.forecastday[detailDay].hour[detailHour].condition.icon}" alt="" /> </div>
+	<h4>Weather</h4>
+	<div class="condition-image-container"><img src="${data.forecast.forecastday[detailDay].hour[detailHour].condition.icon}" alt="" /> </div><br>
 	<span id="condition-text">${data.forecast.forecastday[detailDay].hour[detailHour].condition.text}</span><br>
 	<span id="cloud">Cloud coverage: ${data.forecast.forecastday[detailDay].hour[detailHour].cloud}%</span><br>
 	<span id="humidity">Humidity: ${data.forecast.forecastday[detailDay].hour[detailHour].humidity}q</span><br>
@@ -209,6 +211,7 @@ function displayCenter(data) {
 	`;
 
 	hourlyWind.innerHTML = `
+	<h4>Wind</h4>
 	<span id="wind-speed">Wind Speed: ${data.forecast.forecastday[detailDay].hour[detailHour].wind_kph} kph</span>
 	<br>
 	<span id="wind-chill">Wind Chill: ${data.forecast.forecastday[detailDay].hour[detailHour].windchill_c}°C</span>

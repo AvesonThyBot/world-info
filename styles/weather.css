@@ -202,6 +202,34 @@
 	border: 2px solid black;
 }
 
+.details-hourly {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.details-hourly h4 {
+	align-items: center;
+	font-weight: 700;
+}
+
+.details-hourly div:nth-child(0) {
+	display: flex;
+	padding-right: 50px;
+}
+
+.condition-image-container {
+	width: 80px;
+	height: auto;
+	border-radius: 50%;
+	border: 1px solid black;
+	padding: 0;
+}
+
+.condition-image-container img {
+	width: 100%;
+}
+
 /* -------------------- Bottom text -------------------- */
 .bottom-row {
 	position: absolute;
