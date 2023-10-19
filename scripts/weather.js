@@ -225,6 +225,7 @@ function displayCenter(data) {
 	const airQualityData = data.current.air_quality;
 	const excludedProperties = ["us-epa-index", "gb-defra-index"];
 	const tableBody = document.getElementById("air-quality-table-body");
+	tableBody.innerHTML = "";
 	for (const parameter in airQualityData) {
 		if (Object.hasOwnProperty.call(airQualityData, parameter) && !excludedProperties.includes(parameter)) {
 			const value = airQualityData[parameter];
